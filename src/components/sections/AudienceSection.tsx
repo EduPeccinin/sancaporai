@@ -5,15 +5,16 @@ import { motion } from "framer-motion";
 import { Container } from "../ui/Container";
 
 const audienceData = [
-  { label: "Mulheres", percentage: 65, color: "bg-[var(--color-sanca-orange)]" },
-  { label: "Homens", percentage: 35, color: "bg-[var(--color-sanca-dark)]" },
+  { label: "Mulheres", percentage: 64.4, color: "bg-[var(--color-sanca-orange)]" },
+  { label: "Homens", percentage: 35.6, color: "bg-[var(--color-sanca-dark)]" },
 ];
 
 const ageData = [
-  { range: "18-24", percentage: 20 },
-  { range: "25-34", percentage: 45 },
-  { range: "35-44", percentage: 25 },
-  { range: "45+", percentage: 10 },
+  { range: "18-24", percentage: 13.7 },
+  { range: "25-34", percentage: 35.7 },
+  { range: "35-44", percentage: 24.6 },
+  { range: "45-54", percentage: 14.8 },
+  { range: "55+", percentage: 11.2 },
 ];
 
 export function AudienceSection() {

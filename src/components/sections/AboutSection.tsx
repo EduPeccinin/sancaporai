@@ -30,7 +30,7 @@ export function AboutSection() {
                 O <strong className="text-[var(--color-sanca-orange)] font-bold">Sanca Por Aí</strong> nasceu com o propósito de conectar as melhores experiências gastronômicas de São Carlos e região com um público engajado e apaixonado por novidades.
               </p>
               <p>
-                Criado em abril de 2022, hoje o Sanca Por Aí conta com um público fiel de mais de 92 mil seguidores que utilizam a página como referência de busca de entretenimento. Por isso, nosso maior compromisso é agradar o público que nos acompanha, oferecendo dicas que sejam boas e verdadeiras, buscando também ajudar os comerciantes locais a terem uma maior visibilidade na região, apresentando seus produtos de forma natural e verídica.
+                Criado em abril de 2022, hoje o Sanca Por Aí conta com um público fiel de mais de 97 mil seguidores que utilizam a página como referência de busca de entretenimento. Por isso, nosso maior compromisso é agradar o público que nos acompanha, oferecendo dicas que sejam boas e verdadeiras, buscando também ajudar os comerciantes locais a terem uma maior visibilidade na região, apresentando seus produtos de forma natural e verídica.
               </p>
             </div>
 
