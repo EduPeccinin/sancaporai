@@ -14,8 +14,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Sanca Por Aí | Mídia Kit",
-  description: "Mídia Kit Oficial do Sanca Por Aí. Transformando visualizações em clientes e engajamento em vendas.",
+  title: "Sanca Por Aí | Mídia Gastronômica Local",
+  description:
+    "Sanca Por Aí conecta negócios gastronômicos de São Carlos e região a uma audiência local engajada.",
 };
 
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${bebasNeue.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>
   );
 }

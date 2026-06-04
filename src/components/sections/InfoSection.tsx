@@ -2,95 +2,86 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { AlertCircle, Camera, FileText } from "lucide-react";
 import { Container } from "../ui/Container";
-import { AlertCircle, FileText, Camera } from "lucide-react";
 
 export function InfoSection() {
   return (
-    <section id="informacoes" className="py-24 bg-gray-50 text-[var(--color-sanca-dark)]">
+    <section id="informacoes" className="bg-white py-24 text-[var(--color-sanca-dark)]">
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.65 }}
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <h2 className="font-heading text-5xl md:text-6xl text-[var(--color-sanca-dark)] uppercase">
-            Informações Importantes
+          <p className="font-sans text-sm font-bold uppercase tracking-[0.24em] text-[var(--color-sanca-orange)]">
+            Informações comerciais
+          </p>
+          <h2 className="mt-3 font-heading text-5xl uppercase md:text-7xl">
+            Combinados importantes
           </h2>
-          <div className="w-24 h-1 bg-[var(--color-sanca-orange)] mx-auto mt-4" />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Informações Gerais */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full"
-          >
-            <AlertCircle className="w-10 h-10 text-[var(--color-sanca-orange)] mb-6" />
-            <h3 className="font-heading text-2xl uppercase mb-6 tracking-wide">Prazos e Pagamentos</h3>
-            <ul className="space-y-4 font-sans text-gray-600 text-sm list-disc list-inside flex-1">
-              <li>O pagamento deve ser feito no ato da gravação.</li>
-              <li><strong>Formas de Pagamento:</strong> PIX, Dinheiro, Débito ou Crédito em até 3x.</li>
-              <li>O prazo de postagem do Reels é de 25 e 35 dias após a gravação.</li>
-              <li>O vídeo para aprovação só será enviado no dia que foi combinado a postagem.</li>
-              <li>Todos os posts obrigatoriamente possuem os valores sobre os serviços e produtos.</li>
-              <li>Não nos responsabilizamos por comentários e críticas negativas no vídeo.</li>
-            </ul>
-          </motion.div>
+        <div className="grid gap-6 lg:grid-cols-3">
+          <InfoCard icon={<AlertCircle />} title="Prazos e pagamentos">
+            <li>Pagamento no ato da gravação.</li>
+            <li>PIX, dinheiro, débito ou crédito em até 3x.</li>
+            <li>Prazo de postagem do Reels entre 25 e 35 dias após a gravação.</li>
+            <li>Todos os posts possuem valores dos serviços e produtos.</li>
+            <li>Comentários do público são de responsabilidade da própria dinâmica da rede.</li>
+          </InfoCard>
 
-          {/* Cobranças Adicionais */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full"
-          >
-            <FileText className="w-10 h-10 text-[var(--color-sanca-orange)] mb-6" />
-            <h3 className="font-heading text-2xl uppercase mb-6 tracking-wide text-[var(--color-sanca-orange)]">Atenção (Cobranças Extras)</h3>
-            <div className="space-y-4 font-sans text-gray-600 text-sm flex-1">
-              <p>Haverá cobrança extra dependendo do tempo de exibição e do local onde será exibido o material produzido pela equipe Sanca Por Aí, tais como:</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Uso orgânico do conteúdo nas redes sociais;</li>
-                <li>Tráfego pago;</li>
-                <li>Exibição em estabelecimentos físicos;</li>
-                <li>Exibição em mídias offline (outdoor, painéis de LED, etc).</li>
-              </ul>
-              <p className="mt-4">
-                <strong>Deslocamento:</strong> Caso a cidade para gravação seja diferente de São Carlos e Ibaté, será cobrada uma taxa adicional de combustível.
-              </p>
-            </div>
-          </motion.div>
+          <InfoCard icon={<FileText />} title="Cobranças adicionais">
+            <li>Uso orgânico do conteúdo nas redes sociais.</li>
+            <li>Uso em tráfego pago.</li>
+            <li>Exibição em estabelecimentos físicos.</li>
+            <li>Exibição em mídias offline, como outdoor e painéis de LED.</li>
+            <li>Deslocamento fora de São Carlos e Ibaté pode ter taxa adicional.</li>
+          </InfoCard>
 
-          {/* Uso de Imagem */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="p-8 bg-[var(--color-sanca-dark)] text-white rounded-3xl shadow-xl flex flex-col h-full"
-          >
-            <Camera className="w-10 h-10 text-[var(--color-sanca-orange)] mb-6" />
-            <h3 className="font-heading text-2xl uppercase mb-6 tracking-wide text-white">Uso de Imagem (Direitos)</h3>
-            <div className="space-y-4 font-sans text-gray-300 text-sm leading-relaxed flex-1">
-              <p>
-                O uso de qualquer conteúdo produzido pela página Sanca Por Aí, contendo a imagem e/ou semelhança de João ou Thalyta, seja em formato de vídeo ou imagem, está sujeito ao pagamento de uma taxa mensal pelo "Uso de Imagem".
-              </p>
-              <p>
-                Os materiais produzidos (fotos e vídeos) são de uso exclusivo da página Sanca Por Aí.
-              </p>
-              <p className="text-red-300 font-bold mt-4 bg-red-950/30 p-3 rounded-lg border border-red-900/50">
-                A veiculação do conteúdo sem a devida autorização ou pagamento constituirá violação dos direitos de imagem (Art. 20 da Lei nº 9.610/98), podendo resultar em medidas legais cabíveis.
-              </p>
-            </div>
-          </motion.div>
+          <InfoCard dark icon={<Camera />} title="Uso de imagem">
+            <li>Conteúdos com imagem de João ou Thalyta possuem regras de uso.</li>
+            <li>Materiais produzidos pela página são de uso exclusivo do Sanca Por Aí.</li>
+            <li>Veiculação sem autorização pode gerar medidas cabíveis.</li>
+          </InfoCard>
         </div>
       </Container>
     </section>
+  );
+}
+
+function InfoCard({
+  title,
+  icon,
+  children,
+  dark,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+  dark?: boolean;
+}) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={`rounded-lg p-7 shadow-sm ${
+        dark
+          ? "bg-[var(--color-sanca-dark)] text-white"
+          : "border border-gray-100 bg-[var(--color-sanca-light)] text-[var(--color-sanca-dark)]"
+      }`}
+    >
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-sanca-orange)] text-white">
+        {icon}
+      </div>
+      <h3 className="font-heading text-3xl uppercase">{title}</h3>
+      <ul className={`mt-5 list-disc space-y-3 pl-5 font-sans text-sm leading-relaxed ${dark ? "text-white/72" : "text-gray-600"}`}>
+        {children}
+      </ul>
+    </motion.article>
   );
 }

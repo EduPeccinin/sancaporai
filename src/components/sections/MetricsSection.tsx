@@ -1,87 +1,81 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "../ui/Container";
-import Image from "next/image";
+
+const metrics = [
+  { value: "+300 mil", label: "contas alcançadas mensalmente" },
+  { value: "+2,5 milhões", label: "impressões por mês" },
+  { value: "+20 mil", label: "visualizações por story" },
+  { value: "+60 mil", label: "visualizações em reels" },
+];
+
+const proofImages = [
+  { src: "/images/metrics/views reels.png", title: "Views em reels" },
+  { src: "/images/metrics/views story.png", title: "Views em stories" },
+];
 
 export function MetricsSection() {
-  const images = [
-    "/images/metrics/numeros 1.png",
-    "/images/metrics/numeros 2.png",
-    "/images/metrics/numeros 3.png",
-    "/images/metrics/numeros 4.png",
-  ];
-
-  const highlights = [
-    { src: "/images/metrics/views reels.png", title: "Views em Reels" },
-    { src: "/images/metrics/views story.png", title: "Views em Stories" },
-  ];
-
   return (
-    <section id="metricas" className="py-24 bg-white text-[var(--color-sanca-dark)] overflow-hidden">
+    <section id="metricas" className="overflow-hidden bg-[var(--color-sanca-dark)] py-24 text-white">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-heading text-5xl md:text-6xl text-[var(--color-sanca-dark)] uppercase">
-            Nossa Audiência e Alcance
-          </h2>
-          <div className="w-24 h-1 bg-[var(--color-sanca-orange)] mx-auto mt-4" />
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-            Números reais de quem vive e engaja com a gastronomia da região.
-          </p>
-        </motion.div>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.65 }}
+          >
+            <p className="font-sans text-sm font-bold uppercase tracking-[0.24em] text-[var(--color-sanca-orange)]">
+              Números e audiência
+            </p>
+            <h2 className="mt-3 font-heading text-5xl uppercase md:text-7xl">
+              Alcance real para negócios que dependem de movimento
+            </h2>
+            <p className="mt-5 font-sans text-lg leading-relaxed text-white/70">
+              Os dados do mídia kit mostram uma comunidade grande, recorrente e local. O valor aqui não é só aparecer: é aparecer para quem já procura onde comer, comprar e sair.
+            </p>
+          </motion.div>
 
-        {/* Top metrics from numeros 1-4 */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {images.map((src, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative w-full aspect-[4/5] bg-[var(--color-sanca-light)] rounded-2xl overflow-hidden shadow-md border border-gray-100 group"
-            >
-              <Image
-                src={src}
-                alt={`Métrica ${index + 1}`}
-                fill
-                className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 640px) 50vw, 25vw"
-              />
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-2 gap-4">
+            {metrics.map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.05 }}
+                className="rounded-lg border border-white/10 bg-white/[0.06] p-6"
+              >
+                <strong className="block font-heading text-5xl text-[var(--color-sanca-orange)] md:text-6xl">
+                  {metric.value}
+                </strong>
+                <span className="mt-2 block font-sans text-sm font-semibold uppercase tracking-wide text-white/72">
+                  {metric.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        {/* Highlighted Views (Reels and Stories) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {highlights.map((item, index) => (
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {proofImages.map((item, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
+              key={item.src}
+              initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className="bg-[var(--color-sanca-dark)] rounded-3xl p-8 flex flex-col items-center shadow-xl relative overflow-hidden"
+              transition={{ duration: 0.55, delay: index * 0.08 }}
+              className="rounded-lg border border-white/10 bg-white p-3 shadow-2xl"
             >
-              <div className="absolute -right-10 -top-10 w-32 h-32 bg-[var(--color-sanca-orange)] rounded-full blur-3xl opacity-20"></div>
-              
-              <h3 className="font-heading text-3xl text-white uppercase mb-6 z-10">
-                {item.title}
-              </h3>
-              
-              <div className="relative w-full aspect-[9/16] sm:aspect-[3/4] md:aspect-square bg-black/50 rounded-xl overflow-hidden border border-white/10 z-10">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-black">
                 <Image
                   src={item.src}
                   alt={item.title}
                   fill
-                  className="object-contain p-2"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>

@@ -1,160 +1,111 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Container } from "../ui/Container";
 import { CheckCircle2, PlusCircle } from "lucide-react";
+import { Container } from "../ui/Container";
 
 const plans = [
   {
-    id: "reels",
     name: "Plano Reels",
     price: "R$ 740,00",
-    description: "Vamos até o estabelecimento ou retiramos o produto para gravar. Mostramos os produtos, ambiente e diferenciais.",
-    features: [
-      "Gravação no local ou retirada",
-      "Narração profissional e edição",
-      "Legenda com detalhes e promoções",
-      "Ideal para gerar desejo e curiosidade",
-    ],
-    addon: {
-      name: "Story ao Vivo",
-      description: "Postado durante a visita, mostra bastidores e gera antecipação.",
-      price: "R$ 1.190,00 (Total)",
-    },
-    popular: false,
+    description: "Produção no estabelecimento ou retirada do produto, mostrando produtos, ambiente e diferenciais.",
+    features: ["Gravação no local ou retirada", "Narração e edição", "Legenda com detalhes e promoções", "Foco em desejo e curiosidade"],
+    addon: "Story ao vivo por R$ 1.190,00 no total",
   },
   {
-    id: "reels-dobro",
-    name: "Plano Reels em Dobro",
+    name: "Reels em Dobro",
     price: "R$ 940,00",
-    description: "Mais visibilidade, mais resultado! Duas postagens no feed para ampliar o seu alcance.",
-    features: [
-      "1 Reels Principal (vídeo completo)",
-      "1 Reels Extra (foco em trend/oferta)",
-      "Aprovação prévia de todo o material",
-      "Maior impacto e consistência",
-    ],
-    addon: {
-      name: "Story ao Vivo",
-      description: "Postado durante a visita, mostra bastidores e gera antecipação.",
-      price: "R$ 1.390,00 (Total)",
-    },
-    popular: true,
+    description: "Duas postagens no feed para ampliar alcance, consistência e impacto da campanha.",
+    features: ["1 reels principal", "1 reels extra com trend ou oferta", "Combinação do melhor momento de postagem", "Mais presença no feed"],
+    addon: "Story ao vivo por R$ 1.390,00 no total",
+    featured: true,
   },
   {
-    id: "story",
     name: "Plano Story",
     price: "R$ 640,00",
-    description: "Vídeo curto (até 1 min) que ficará no ar por 24h, com média de 6 a 10 mil visualizações.",
-    features: [
-      "Padrão premium de gravação e edição",
-      "Pode ser inserido nos Destaques (recorrência)",
-      "Ideal para quem está começando",
-      "Perfeito para promoções por tempo limitado",
-    ],
-    popular: false,
+    description: "Vídeo curto de até 1 minuto, no ar por 24 horas, com média de 6 a 10 mil visualizações.",
+    features: ["Gravação e edição premium", "Pode entrar nos destaques", "Bom para ações rápidas", "Perfeito para promoções pontuais"],
   },
   {
-    id: "carrossel",
     name: "Plano Carrossel",
     price: "R$ 590,00",
-    description: "Até 10 imagens intercalando os principais produtos e o ambiente.",
-    features: [
-      "Visita ao estabelecimento ou retirada",
-      "Fotos profissionais dos produtos",
-      "Explicação detalhada concentrada na legenda",
-      "Até 2.200 caracteres de informações",
-    ],
-    popular: false,
+    description: "Até 10 imagens alternando produtos principais, ambiente e informações comerciais.",
+    features: ["Fotos dos produtos", "Visita ou retirada", "Legenda estratégica", "Até 2.200 caracteres"],
   },
 ];
 
 export function PricingSection() {
-  const scrollToContact = (planoName: string) => {
-    // Optionally set the plan in the contact form
-    const contactSection = document.getElementById("contato");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section id="planos" className="py-24 bg-[var(--color-sanca-light)] text-[var(--color-sanca-dark)] overflow-hidden">
+    <section id="planos" className="bg-[var(--color-sanca-light)] py-24 text-[var(--color-sanca-dark)]">
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.65 }}
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <h2 className="font-heading text-5xl md:text-6xl text-[var(--color-sanca-dark)] uppercase">
-            Nossos Planos
+          <p className="font-sans text-sm font-bold uppercase tracking-[0.24em] text-[var(--color-sanca-orange)]">
+            Planos
+          </p>
+          <h2 className="mt-3 font-heading text-5xl uppercase md:text-7xl">
+            Formatos comerciais para diferentes momentos da marca
           </h2>
-          <div className="w-24 h-1 bg-[var(--color-sanca-orange)] mx-auto mt-4" />
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-            Escolha o formato ideal para impulsionar a visibilidade do seu negócio e atrair novos clientes.
+          <p className="mt-5 font-sans text-lg leading-relaxed text-gray-600">
+            Pontual, recorrente, lançamento, evento ou produto novo: a escolha do formato depende do objetivo da divulgação.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {plans.map((plan, index) => (
-            <motion.div
-              key={plan.id}
-              initial={{ opacity: 0, y: 30 }}
+            <motion.article
+              key={plan.name}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative bg-white rounded-3xl p-8 flex flex-col shadow-lg border-2 transition-transform duration-300 hover:-translate-y-2 ${
-                plan.popular ? "border-[var(--color-sanca-orange)]" : "border-transparent"
+              transition={{ duration: 0.45, delay: index * 0.05 }}
+              className={`flex min-h-full flex-col rounded-lg border-2 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 ${
+                plan.featured ? "border-[var(--color-sanca-orange)]" : "border-transparent"
               }`}
             >
-              {plan.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--color-sanca-orange)] text-white font-sans font-bold text-sm px-4 py-1 rounded-full uppercase tracking-wider">
-                  Mais Escolhido
-                </div>
+              {plan.featured && (
+                <span className="mb-4 w-fit rounded-md bg-[var(--color-sanca-orange)] px-3 py-1 font-sans text-xs font-bold uppercase tracking-wide text-white">
+                  Mais escolhido
+                </span>
               )}
+              <h3 className="font-heading text-4xl uppercase">{plan.name}</h3>
+              <p className="mt-3 min-h-20 font-sans text-sm leading-relaxed text-gray-600">
+                {plan.description}
+              </p>
+              <strong className="mt-6 block font-heading text-5xl text-[var(--color-sanca-orange)]">
+                {plan.price}
+              </strong>
 
-              <div className="mb-8">
-                <h3 className="font-heading text-3xl uppercase mb-2">{plan.name}</h3>
-                <p className="text-gray-500 font-sans text-sm mb-6 min-h-[5.5rem]">{plan.description}</p>
-                <div className="font-heading text-4xl text-[var(--color-sanca-orange)]">
-                  {plan.price}
-                </div>
-              </div>
-
-              <div className="flex-1 space-y-4 mb-8">
-                {plan.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[var(--color-sanca-orange)] shrink-0 mt-0.5" />
-                    <span className="font-sans text-gray-600 text-sm">{feature}</span>
+              <div className="mt-6 flex-1 space-y-3">
+                {plan.features.map((feature) => (
+                  <div key={feature} className="flex gap-3 font-sans text-sm text-gray-700">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-sanca-orange)]" />
+                    {feature}
                   </div>
                 ))}
               </div>
 
               {plan.addon && (
-                <div className="mb-8 p-4 bg-[var(--color-sanca-light)] rounded-xl border border-orange-100">
-                  <div className="flex items-center gap-2 mb-2 text-[var(--color-sanca-orange)] font-bold text-sm uppercase">
-                    <PlusCircle className="w-4 h-4" /> Adicional
-                  </div>
-                  <h4 className="font-heading text-lg">{plan.addon.name}</h4>
-                  <p className="text-xs text-gray-500 mb-2">{plan.addon.description}</p>
-                  <div className="font-bold font-sans text-gray-900">{plan.addon.price}</div>
+                <div className="mt-6 rounded-lg bg-[var(--color-sanca-light)] p-4 font-sans text-sm font-semibold text-gray-700">
+                  <PlusCircle className="mb-2 h-5 w-5 text-[var(--color-sanca-orange)]" />
+                  {plan.addon}
                 </div>
               )}
 
-              <button
-                onClick={() => scrollToContact(plan.name)}
-                className={`w-full py-4 rounded-xl font-heading text-xl uppercase tracking-wider transition-colors ${
-                  plan.popular
-                    ? "bg-[var(--color-sanca-orange)] text-white hover:bg-orange-600"
-                    : "bg-gray-900 text-white hover:bg-gray-800"
-                }`}
+              <Link
+                href="/contato"
+                className="mt-6 inline-flex h-12 items-center justify-center rounded-lg bg-black px-5 font-heading text-lg uppercase tracking-wide text-white transition-colors hover:bg-[var(--color-sanca-orange)]"
               >
-                Quero este plano
-              </button>
-            </motion.div>
+                Vamos conversar
+              </Link>
+            </motion.article>
           ))}
         </div>
       </Container>

@@ -2,77 +2,58 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Beer, CakeSlice, CalendarHeart, Coffee, Hamburger, Pizza, PlaneTakeoff, Utensils } from "lucide-react";
 import { Container } from "../ui/Container";
-import { Utensils, Beer, CalendarHeart, PlaneTakeoff } from "lucide-react";
 
 const segments = [
-  {
-    id: "restaurantes",
-    title: "Restaurantes",
-    description: "Gastronomia local, pratos elaborados e experiências culinárias únicas.",
-    icon: Utensils,
-  },
-  {
-    id: "bares",
-    title: "Bares",
-    description: "Drinks, petiscos e os melhores points para o happy hour e diversão noturna.",
-    icon: Beer,
-  },
-  {
-    id: "eventos",
-    title: "Eventos",
-    description: "Cobertura de festas, festivais, shows e inaugurações na região.",
-    icon: CalendarHeart,
-  },
-  {
-    id: "viagens",
-    title: "Viagens",
-    description: "Dicas de turismo, passeios, hotéis e roteiros para sair da rotina.",
-    icon: PlaneTakeoff,
-  },
+  { title: "Hamburguerias", icon: Hamburger },
+  { title: "Cafeterias", icon: Coffee },
+  { title: "Pizzarias", icon: Pizza },
+  { title: "Restaurantes", icon: Utensils },
+  { title: "Bares", icon: Beer },
+  { title: "Docerias", icon: CakeSlice },
+  { title: "Eventos", icon: CalendarHeart },
+  { title: "Viagens", icon: PlaneTakeoff },
 ];
 
 export function SegmentsSection() {
   return (
-    <section className="py-24 bg-white text-[var(--color-sanca-dark)] overflow-hidden">
+    <section className="bg-white py-24 text-[var(--color-sanca-dark)]">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.65 }}
+          className="mx-auto mb-14 max-w-3xl text-center"
         >
-          <h2 className="font-heading text-5xl md:text-6xl text-[var(--color-sanca-dark)] uppercase">
-            Nossos Segmentos
+          <p className="font-sans text-sm font-bold uppercase tracking-[0.24em] text-[var(--color-sanca-orange)]">
+            Segmentos
+          </p>
+          <h2 className="mt-3 font-heading text-5xl uppercase md:text-7xl">
+            Mostrando o que há de melhor em São Carlos e região
           </h2>
-          <div className="w-24 h-1 bg-[var(--color-sanca-orange)] mx-auto mt-4" />
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-            Atuamos em diversos nichos para levar o melhor do entretenimento e gastronomia para a nossa comunidade.
+          <p className="mt-5 font-sans text-lg leading-relaxed text-gray-600">
+            Da comida rápida ao jantar especial, do evento ao café da tarde: a audiência do Sanca busca experiências para viver agora.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {segments.map((segment, index) => {
             const Icon = segment.icon;
             return (
               <motion.div
-                key={segment.id}
-                initial={{ opacity: 0, y: 30 }}
+                key={segment.title}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-[var(--color-sanca-light)] rounded-2xl p-8 hover:bg-[var(--color-sanca-orange)] transition-colors duration-300 shadow-sm hover:shadow-xl text-center"
+                transition={{ duration: 0.45, delay: index * 0.04 }}
+                className="group rounded-lg border border-gray-100 bg-[var(--color-sanca-light)] p-6 transition-colors hover:bg-[var(--color-sanca-orange)]"
               >
-                <div className="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-8 h-8 text-[var(--color-sanca-orange)]" />
-                </div>
-                <h3 className="font-heading text-2xl uppercase text-[var(--color-sanca-dark)] group-hover:text-white transition-colors duration-300 mb-3">
+                <Icon className="h-9 w-9 text-[var(--color-sanca-orange)] transition-colors group-hover:text-white" />
+                <h3 className="mt-6 font-heading text-3xl uppercase leading-none text-black transition-colors group-hover:text-white">
                   {segment.title}
                 </h3>
-                <p className="font-sans text-gray-600 group-hover:text-white/90 transition-colors duration-300">
-                  {segment.description}
-                </p>
               </motion.div>
             );
           })}
