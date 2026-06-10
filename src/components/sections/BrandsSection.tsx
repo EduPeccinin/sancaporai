@@ -12,6 +12,9 @@ const brands = [
   { name: "Havan", logo: "/images/brand/havan.png" },
   { name: "Growth Supplements", logo: "/images/brand/growth-supplements.png" },
   { name: "Senac", logo: "/images/brand/senac.png" },
+  { name: "Outback", logo: "/images/brand/outback-steakhouse-seeklogo.png" },
+  { name: "99", logo: "/images/brand/99-seeklogo.png" },
+  { name: "MRV", logo: "/images/brand/mrv-logo-2019.svg" },
 ];
 
 export function BrandsSection() {

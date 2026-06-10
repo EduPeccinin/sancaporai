@@ -3,34 +3,31 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CheckCircle2, PlusCircle } from "lucide-react";
+import { CheckCircle2, MessageCircle, PlusCircle } from "lucide-react";
 import { Container } from "../ui/Container";
+import { getSancaWhatsappUrl } from "@/lib/contact";
 
 const plans = [
   {
     name: "Plano Reels",
-    price: "R$ 740,00",
     description: "Produção no estabelecimento ou retirada do produto, mostrando produtos, ambiente e diferenciais.",
     features: ["Gravação no local ou retirada", "Narração e edição", "Legenda com detalhes e promoções", "Foco em desejo e curiosidade"],
-    addon: "Story ao vivo por R$ 1.190,00 no total",
+    addon: "Story ao vivo pode ser combinado como complemento do plano",
   },
   {
     name: "Reels em Dobro",
-    price: "R$ 940,00",
     description: "Duas postagens no feed para ampliar alcance, consistência e impacto da campanha.",
     features: ["1 reels principal", "1 reels extra com trend ou oferta", "Combinação do melhor momento de postagem", "Mais presença no feed"],
-    addon: "Story ao vivo por R$ 1.390,00 no total",
+    addon: "Story ao vivo pode ser combinado como complemento do plano",
     featured: true,
   },
   {
     name: "Plano Story",
-    price: "R$ 640,00",
     description: "Vídeo curto de até 1 minuto, no ar por 24 horas, com média de 6 a 10 mil visualizações.",
     features: ["Gravação e edição premium", "Pode entrar nos destaques", "Bom para ações rápidas", "Perfeito para promoções pontuais"],
   },
   {
     name: "Plano Carrossel",
-    price: "R$ 590,00",
     description: "Até 10 imagens alternando produtos principais, ambiente e informações comerciais.",
     features: ["Fotos dos produtos", "Visita ou retirada", "Legenda estratégica", "Até 2.200 caracteres"],
   },
@@ -79,10 +76,6 @@ export function PricingSection() {
               <p className="mt-3 min-h-20 font-sans text-sm leading-relaxed text-gray-600">
                 {plan.description}
               </p>
-              <strong className="mt-6 block font-heading text-5xl text-[var(--color-sanca-orange)]">
-                {plan.price}
-              </strong>
-
               <div className="mt-6 flex-1 space-y-3">
                 {plan.features.map((feature) => (
                   <div key={feature} className="flex gap-3 font-sans text-sm text-gray-700">
@@ -99,12 +92,23 @@ export function PricingSection() {
                 </div>
               )}
 
-              <Link
-                href="/contato"
-                className="mt-6 inline-flex h-12 items-center justify-center rounded-lg bg-black px-5 font-heading text-lg uppercase tracking-wide text-white transition-colors hover:bg-[var(--color-sanca-orange)]"
-              >
-                Vamos conversar
-              </Link>
+              <div className="mt-6 grid gap-3">
+                <Link
+                  href="/contato"
+                  className="inline-flex h-12 items-center justify-center rounded-lg bg-black px-5 font-heading text-lg uppercase tracking-wide text-white transition-colors hover:bg-[var(--color-sanca-orange)]"
+                >
+                  Vamos conversar
+                </Link>
+                <a
+                  href={getSancaWhatsappUrl(`Olá! Gostaria de conversar sobre o ${plan.name} do Sanca Por Aí.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-black/10 bg-[var(--color-sanca-light)] px-5 font-heading text-lg uppercase tracking-wide text-black transition-colors hover:border-[var(--color-sanca-orange)] hover:text-[var(--color-sanca-orange)]"
+                >
+                  WhatsApp
+                  <MessageCircle className="h-5 w-5" />
+                </a>
+              </div>
             </motion.article>
           ))}
         </div>

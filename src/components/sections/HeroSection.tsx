@@ -4,8 +4,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Container } from "../ui/Container";
+import { getSancaWhatsappUrl } from "@/lib/contact";
 
 const stats = [
   { value: "+97 mil", label: "seguidores fiéis" },
@@ -34,46 +35,55 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-sanca-dark)] via-[var(--color-sanca-dark)]/82 to-black/20" />
 
       <Container className="relative z-10 mt-10 flex flex-col items-center text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-          className="mb-5 rounded-lg border border-white/15 bg-white/10 px-4 py-2 font-sans text-xs font-bold uppercase tracking-[0.24em] text-white/80 backdrop-blur"
-        >
-          Mídia gastronômica local
-        </motion.p>
-
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-heading text-7xl uppercase leading-none tracking-wide text-[var(--color-sanca-orange)] drop-shadow-xl md:text-9xl"
+          className="mt-4 flex flex-col items-center md:mt-6"
         >
-          Sanca Por Aí
-        </motion.h1>
+          <h1 className="sr-only">Sanca Por Aí</h1>
+          <div className="p-2">
+            <Image
+              src="/images/brand/logo-sanca.svg"
+              alt="Sanca Por Aí"
+              width={520}
+              height={520}
+              priority
+              className="h-auto w-[min(88vw,470px)] md:w-[580px]"
+            />
+          </div>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="mx-auto mt-5 max-w-3xl font-sans text-xl leading-relaxed text-gray-100 drop-shadow-md md:text-2xl"
+          className="mx-auto mt-0 max-w-3xl font-sans text-xl leading-relaxed text-gray-100 drop-shadow-md md:mt-1 md:text-2xl"
         >
-          Transformamos negócios gastronômicos em assunto na cidade, criando desejo, presença local e movimento para marcas de São Carlos e região.
+          Conteúdo que gera desejo para o seu negócio.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-9 flex flex-col gap-3 sm:flex-row"
+          className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center"
         >
           <Link
             href="/contato"
             className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-[var(--color-sanca-orange)] px-8 font-heading text-xl uppercase tracking-wide text-white transition-transform hover:-translate-y-1"
           >
             Quero divulgar meu negócio
-            <ArrowRight className="h-5 w-5" />
           </Link>
+          <a
+            href={getSancaWhatsappUrl("Olá! Quero divulgar meu negócio com o Sanca Por Aí.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-14 items-center justify-center gap-2 rounded-lg border border-white/25 bg-black/25 px-8 font-heading text-xl uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-black"
+          >
+            WhatsApp
+            <MessageCircle className="h-5 w-5" />
+          </a>
           <a
             href="https://www.instagram.com/sancaporai/"
             target="_blank"

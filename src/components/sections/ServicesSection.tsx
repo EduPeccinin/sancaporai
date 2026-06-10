@@ -121,9 +121,6 @@ export function ServicesSection() {
                     <li>Gravação em locações ou estúdio</li>
                     <li>Edição e Pós-produção</li>
                   </ul>
-                  <div className="font-heading text-3xl text-[var(--color-sanca-orange)]">
-                    R$ 640,00
-                  </div>
                 </div>
                 
                 <div className="bg-white p-6 rounded-2xl border border-gray-100 text-sm font-sans text-gray-600">

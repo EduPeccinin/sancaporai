@@ -2,8 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Beer, CakeSlice, CalendarHeart, Coffee, Hamburger, Pizza, PlaneTakeoff, Utensils } from "lucide-react";
+import { Beer, CakeSlice, CalendarHeart, Coffee, Hamburger, MessageCircle, Pizza, PlaneTakeoff, Utensils } from "lucide-react";
 import { Container } from "../ui/Container";
+import { getSancaWhatsappUrl } from "@/lib/contact";
 
 const segments = [
   { title: "Hamburguerias", icon: Hamburger },
@@ -57,6 +58,18 @@ export function SegmentsSection() {
               </motion.div>
             );
           })}
+        </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href={getSancaWhatsappUrl("Olá! Meu negócio se encaixa nos segmentos do Sanca Por Aí e quero saber mais.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-[var(--color-sanca-orange)] px-8 font-heading text-xl uppercase tracking-wide text-white transition-transform hover:-translate-y-1"
+          >
+            Divulgar meu segmento
+            <MessageCircle className="h-5 w-5" />
+          </a>
         </div>
       </Container>
     </section>

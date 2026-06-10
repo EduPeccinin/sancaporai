@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Sanca Por Aí | Mídia Gastronômica Local",
+  title: "Sanca Por Aí | Conteúdo que gera desejo",
   description:
     "Sanca Por Aí conecta negócios gastronômicos de São Carlos e região a uma audiência local engajada.",
 };

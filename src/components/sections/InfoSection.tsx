@@ -33,18 +33,17 @@ export function InfoSection() {
             <li>Comentários do público são de responsabilidade da própria dinâmica da rede.</li>
           </InfoCard>
 
+          <InfoCard dark icon={<Camera />} title="Uso de imagem">
+            <li>Conteúdos com imagem ou voz de João ou Thalyta possuem regras de uso.</li>
+            <li>Materiais produzidos pela página são de uso exclusivo do Sanca Por Aí.</li>
+            <li>Veiculação sem autorização pode gerar medidas cabíveis.</li>
+          </InfoCard>
+
           <InfoCard icon={<FileText />} title="Cobranças adicionais">
-            <li>Uso orgânico do conteúdo nas redes sociais.</li>
             <li>Uso em tráfego pago.</li>
             <li>Exibição em estabelecimentos físicos.</li>
             <li>Exibição em mídias offline, como outdoor e painéis de LED.</li>
             <li>Deslocamento fora de São Carlos e Ibaté pode ter taxa adicional.</li>
-          </InfoCard>
-
-          <InfoCard dark icon={<Camera />} title="Uso de imagem">
-            <li>Conteúdos com imagem de João ou Thalyta possuem regras de uso.</li>
-            <li>Materiais produzidos pela página são de uso exclusivo do Sanca Por Aí.</li>
-            <li>Veiculação sem autorização pode gerar medidas cabíveis.</li>
           </InfoCard>
         </div>
       </Container>

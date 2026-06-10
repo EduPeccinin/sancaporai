@@ -1,27 +1,16 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 import { Container } from "../ui/Container";
-
-const metrics = [
-  { value: "+300 mil", label: "contas alcançadas mensalmente" },
-  { value: "+2,5 milhões", label: "impressões por mês" },
-  { value: "+20 mil", label: "visualizações por story" },
-  { value: "+60 mil", label: "visualizações em reels" },
-];
-
-const proofImages = [
-  { src: "/images/metrics/views reels.png", title: "Views em reels" },
-  { src: "/images/metrics/views story.png", title: "Views em stories" },
-];
+import { getSancaWhatsappUrl } from "@/lib/contact";
 
 export function MetricsSection() {
   return (
     <section id="metricas" className="overflow-hidden bg-[var(--color-sanca-dark)] py-24 text-white">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="mx-auto grid max-w-5xl gap-10 text-center lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,55 +21,33 @@ export function MetricsSection() {
               Números e audiência
             </p>
             <h2 className="mt-3 font-heading text-5xl uppercase md:text-7xl">
-              Alcance real para negócios que dependem de movimento
+              Alcance mensal que coloca sua marca em evidência
             </h2>
-            <p className="mt-5 font-sans text-lg leading-relaxed text-white/70">
-              Os dados do mídia kit mostram uma comunidade grande, recorrente e local. O valor aqui não é só aparecer: é aparecer para quem já procura onde comer, comprar e sair.
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {metrics.map((metric, index) => (
-              <motion.div
-                key={metric.label}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.05 }}
-                className="rounded-lg border border-white/10 bg-white/[0.06] p-6"
-              >
-                <strong className="block font-heading text-5xl text-[var(--color-sanca-orange)] md:text-6xl">
-                  {metric.value}
-                </strong>
-                <span className="mt-2 block font-sans text-sm font-semibold uppercase tracking-wide text-white/72">
-                  {metric.label}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {proofImages.map((item, index) => (
-            <motion.div
-              key={item.src}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: index * 0.08 }}
-              className="rounded-lg border border-white/10 bg-white p-3 shadow-2xl"
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="rounded-lg border border-white/10 bg-white/[0.06] p-8 shadow-2xl md:p-10"
+          >
+            <strong className="block font-heading text-7xl text-[var(--color-sanca-orange)] md:text-8xl">
+              +1,5 milhão
+            </strong>
+            <span className="mt-4 block font-sans text-base font-bold uppercase tracking-wide text-white/75 md:text-lg">
+              de visualizações por mês
+            </span>
+            <a
+              href={getSancaWhatsappUrl("Olá! Quero aparecer para a audiência do Sanca Por Aí.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[var(--color-sanca-orange)] px-6 font-heading text-lg uppercase tracking-wide text-white transition-transform hover:-translate-y-1"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-black">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </motion.div>
-          ))}
+              Quero esse alcance
+              <MessageCircle className="h-5 w-5" />
+            </a>
+          </motion.div>
         </div>
       </Container>
     </section>

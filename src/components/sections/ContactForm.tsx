@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { AtSign, Mail, Send, MessageCircle } from "lucide-react";
+import { getSancaWhatsappUrl, SANCA_WHATSAPP_DISPLAY } from "@/lib/contact";
 
 const objetivos = [
   "Aumentar movimento",
@@ -60,7 +61,7 @@ Maior desafio do negócio: ${formData.desafio}
 
 Aguardo o retorno da equipe.`;
 
-    window.open(`https://wa.me/5516992312494?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(getSancaWhatsappUrl(message), "_blank");
   };
 
   const inputClass =
@@ -89,9 +90,9 @@ Aguardo o retorno da equipe.`;
           Se preferir, você também pode entrar em contato diretamente pelo nosso WhatsApp ou e-mail.
         </p>
         <div className="space-y-3 font-sans text-sm font-semibold text-white">
-          <a className="flex items-center gap-3 rounded-lg border border-white/10 p-4 transition-colors hover:bg-white/10" href="https://wa.me/5516992312494" target="_blank" rel="noopener noreferrer">
+          <a className="flex items-center gap-3 rounded-lg border border-white/10 p-4 transition-colors hover:bg-white/10" href={getSancaWhatsappUrl()} target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-5 w-5 text-[var(--color-sanca-orange)]" />
-            +55 16 99231-2494
+            {SANCA_WHATSAPP_DISPLAY}
           </a>
           <a className="flex items-center gap-3 rounded-lg border border-white/10 p-4 transition-colors hover:bg-white/10" href="mailto:contatosancaporai@gmail.com">
             <Mail className="h-5 w-5 text-[var(--color-sanca-orange)]" />
