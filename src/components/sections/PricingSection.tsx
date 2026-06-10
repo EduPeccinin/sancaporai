@@ -3,9 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { CheckCircle2, MessageCircle, PlusCircle } from "lucide-react";
+import { CheckCircle2, PlusCircle } from "lucide-react";
 import { Container } from "../ui/Container";
-import { getSancaWhatsappUrl } from "@/lib/contact";
 
 const plans = [
   {
@@ -92,23 +91,12 @@ export function PricingSection() {
                 </div>
               )}
 
-              <div className="mt-6 grid gap-3">
-                <Link
-                  href="/contato"
-                  className="inline-flex h-12 items-center justify-center rounded-lg bg-black px-5 font-heading text-lg uppercase tracking-wide text-white transition-colors hover:bg-[var(--color-sanca-orange)]"
-                >
-                  Vamos conversar
-                </Link>
-                <a
-                  href={getSancaWhatsappUrl(`Olá! Gostaria de conversar sobre o ${plan.name} do Sanca Por Aí.`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-black/10 bg-[var(--color-sanca-light)] px-5 font-heading text-lg uppercase tracking-wide text-black transition-colors hover:border-[var(--color-sanca-orange)] hover:text-[var(--color-sanca-orange)]"
-                >
-                  WhatsApp
-                  <MessageCircle className="h-5 w-5" />
-                </a>
-              </div>
+              <Link
+                href="/contato"
+                className="mt-6 inline-flex h-12 items-center justify-center rounded-lg bg-black px-5 font-heading text-lg uppercase tracking-wide text-white transition-colors hover:bg-[var(--color-sanca-orange)]"
+              >
+                Vamos conversar
+              </Link>
             </motion.article>
           ))}
         </div>

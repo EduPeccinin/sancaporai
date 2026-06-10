@@ -3,9 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 import { Container } from "../ui/Container";
-import { getSancaWhatsappUrl } from "@/lib/contact";
 
 export function AboutSection() {
   return (
@@ -62,15 +60,6 @@ export function AboutSection() {
               ))}
             </div>
 
-            <a
-              href={getSancaWhatsappUrl("Olá! Gostaria de entender como o Sanca Por Aí pode divulgar meu negócio.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-14 items-center justify-center gap-2 rounded-lg bg-[var(--color-sanca-dark)] px-8 font-heading text-xl uppercase tracking-wide text-white transition-transform hover:-translate-y-1"
-            >
-              Conversar pelo WhatsApp
-              <MessageCircle className="h-5 w-5" />
-            </a>
           </motion.div>
 
           <motion.div

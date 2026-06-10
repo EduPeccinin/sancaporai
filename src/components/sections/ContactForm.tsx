@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { AtSign, Mail, Send, MessageCircle } from "lucide-react";
-import { getSancaWhatsappUrl, SANCA_WHATSAPP_DISPLAY } from "@/lib/contact";
+import { AtSign, Mail } from "lucide-react";
+import { getSancaWhatsappUrl } from "@/lib/contact";
+import { WhatsAppLogo } from "../ui/WhatsAppLogo";
 
 const objetivos = [
   "Aumentar movimento",
@@ -87,13 +88,9 @@ Aguardo o retorno da equipe.`;
           Conte um pouco sobre seu negócio e seus objetivos atuais. Assim conseguimos entender melhor o momento da sua marca e conversar sobre a melhor forma de divulgação com o Sanca Por Aí.
         </p>
         <p className="font-sans text-base leading-relaxed text-white/64">
-          Se preferir, você também pode entrar em contato diretamente pelo nosso WhatsApp ou e-mail.
+          Se preferir, você também pode entrar em contato diretamente pelo nosso e-mail.
         </p>
         <div className="space-y-3 font-sans text-sm font-semibold text-white">
-          <a className="flex items-center gap-3 rounded-lg border border-white/10 p-4 transition-colors hover:bg-white/10" href={getSancaWhatsappUrl()} target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="h-5 w-5 text-[var(--color-sanca-orange)]" />
-            {SANCA_WHATSAPP_DISPLAY}
-          </a>
           <a className="flex items-center gap-3 rounded-lg border border-white/10 p-4 transition-colors hover:bg-white/10" href="mailto:contatosancaporai@gmail.com">
             <Mail className="h-5 w-5 text-[var(--color-sanca-orange)]" />
             contatosancaporai@gmail.com
@@ -133,7 +130,7 @@ Aguardo o retorno da equipe.`;
         </div>
 
         <button type="submit" className="mt-7 inline-flex h-14 w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-sanca-orange)] px-8 font-heading text-xl uppercase tracking-wide text-white transition-transform hover:-translate-y-1">
-          <Send className="h-5 w-5" />
+          <WhatsAppLogo />
           Enviar pelo WhatsApp
         </button>
       </form>

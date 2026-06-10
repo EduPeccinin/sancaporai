@@ -4,9 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 import { Container } from "../ui/Container";
-import { getSancaWhatsappUrl } from "@/lib/contact";
 
 const stats = [
   { value: "+97 mil", label: "seguidores fiéis" },
@@ -67,7 +65,7 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center"
+          className="mt-9 flex flex-col gap-3 sm:flex-row"
         >
           <Link
             href="/contato"
@@ -75,15 +73,6 @@ export function HeroSection() {
           >
             Quero divulgar meu negócio
           </Link>
-          <a
-            href={getSancaWhatsappUrl("Olá! Quero divulgar meu negócio com o Sanca Por Aí.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-14 items-center justify-center gap-2 rounded-lg border border-white/25 bg-black/25 px-8 font-heading text-xl uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-black"
-          >
-            WhatsApp
-            <MessageCircle className="h-5 w-5" />
-          </a>
           <a
             href="https://www.instagram.com/sancaporai/"
             target="_blank"

@@ -8,8 +8,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { PricingSection } from "@/components/sections/PricingSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { InfoSection } from "@/components/sections/InfoSection";
-import { MessageCircle } from "lucide-react";
-import { getSancaWhatsappUrl } from "@/lib/contact";
+import { FloatingWhatsAppButton } from "@/components/ui/FloatingWhatsAppButton";
 
 export default function Home() {
   return (
@@ -31,23 +30,12 @@ export default function Home() {
         <h2 className="mx-auto mt-4 max-w-3xl font-heading text-5xl uppercase md:text-7xl">
           Quer divulgar seu negócio com o Sanca Por Aí?
         </h2>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link
-            href="/contato"
-            className="inline-flex h-14 items-center justify-center rounded-lg bg-black px-8 font-heading text-xl uppercase tracking-wide text-white transition-transform hover:-translate-y-1"
-          >
-            Falar com o Sanca Por Aí
-          </Link>
-          <a
-            href={getSancaWhatsappUrl("Olá! Quero divulgar meu negócio com o Sanca Por Aí.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-14 items-center justify-center gap-2 rounded-lg border border-white/45 px-8 font-heading text-xl uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-black"
-          >
-            WhatsApp
-            <MessageCircle className="h-5 w-5" />
-          </a>
-        </div>
+        <Link
+          href="/contato"
+          className="mt-8 inline-flex h-14 items-center justify-center rounded-lg bg-black px-8 font-heading text-xl uppercase tracking-wide text-white transition-transform hover:-translate-y-1"
+        >
+          Falar com o Sanca Por Aí
+        </Link>
       </section>
 
       <footer className="bg-black py-12 text-center text-gray-400">
@@ -55,6 +43,7 @@ export default function Home() {
           © {new Date().getFullYear()} Sanca Por Aí. Todos os direitos reservados.
         </p>
       </footer>
+      <FloatingWhatsAppButton />
     </main>
   );
 }

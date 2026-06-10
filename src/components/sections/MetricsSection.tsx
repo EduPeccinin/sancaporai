@@ -2,9 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 import { Container } from "../ui/Container";
-import { getSancaWhatsappUrl } from "@/lib/contact";
 
 export function MetricsSection() {
   return (
@@ -38,15 +36,6 @@ export function MetricsSection() {
             <span className="mt-4 block font-sans text-base font-bold uppercase tracking-wide text-white/75 md:text-lg">
               de visualizações por mês
             </span>
-            <a
-              href={getSancaWhatsappUrl("Olá! Quero aparecer para a audiência do Sanca Por Aí.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[var(--color-sanca-orange)] px-6 font-heading text-lg uppercase tracking-wide text-white transition-transform hover:-translate-y-1"
-            >
-              Quero esse alcance
-              <MessageCircle className="h-5 w-5" />
-            </a>
           </motion.div>
         </div>
       </Container>
